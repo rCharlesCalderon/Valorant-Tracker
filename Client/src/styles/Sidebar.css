@@ -1,0 +1,52 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+  height: 100vh;
+  width: 6vw;
+ padding-top: 0.3%;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #111;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+.val-logo {
+    
+    height: 9vh;
+    width: 100%;
+    object-fit: cover;
+
+}
+
+.nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  padding-top: 20%;
+    height: 100%;
+    width: 100%;
+}
+.home-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 6vh;
+    border-radius: 7px;
+}
+
+
+.home-logo-container:hover {
+    background: #292929;
+    transition: all .2s linear;
+}
+.home-logo{
+    height: 80%;
+    width: 80%;
+    image-rendering: crisp-edges;
+    filter: brightness(0) invert(1);
+}
+
+.home-logo:hover{
+filter: invert(44%) sepia(92%) saturate(3783%) hue-rotate(331deg) brightness(103%) contrast(98%);
+}
