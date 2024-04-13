@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from "react";
-import { playerContext } from "../router/Router";
+import {useEffect} from "react";
+
 import { useParams } from "react-router-dom";
 import "../styles/PlayerStats.css";
 import Sidebar from "./Sidebar";
 function PlayerStats() {
-  const { playerData, setPlayerData } = useContext(playerContext);
+  
   let gamerTag = useParams();
 
   useEffect(() => {
