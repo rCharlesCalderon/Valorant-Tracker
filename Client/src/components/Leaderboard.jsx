@@ -18,22 +18,15 @@ function Leaderboard() {
 
   useEffect(()=>{
   
-       fetch(
-         `https://na.api.riotgames.com/val/ranked/v1/leaderboards/by-act/22d10d66-4d2a-a340-6c54-408c7bd53807?size=15&startIndex=${page}&api_key=RGAPI-d6bea57b-e468-4496-b719-2c2e493bc15c`,
-         {
-           headers: {
-             "X-Requested-With": "XMLHttpRequest",
-             Origin: "https://developer.riotgames.com",
-           },
-           mode: "cors",
-         }
-       )
-         .then((res) => res.json())
-         .then((data) => {
-           setActData(data);
+        fetch(
+          `https://na.api.riotgames.com/val/ranked/v1/leaderboards/by-act/22d10d66-4d2a-a340-6c54-408c7bd53807?size=15&startIndex=${page}&api_key=RGAPI-774004bd-cd17-4d8e-8c62-9f3d59c78275`
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            setActData(data);
 
-           setPlayerLeaderboard(data.players);
-         });
+            setPlayerLeaderboard(data.players);
+          });
   
   
   },[page])
