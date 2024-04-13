@@ -19,7 +19,7 @@ function Leaderboard() {
   useEffect(()=>{
   
         fetch(
-          `https://na.api.riotgames.com/val/ranked/v1/leaderboards/by-act/22d10d66-4d2a-a340-6c54-408c7bd53807?size=15&startIndex=${page}&api_key=RGAPI-774004bd-cd17-4d8e-8c62-9f3d59c78275`
+          `https://na.api.riotgames.com/val/ranked/v1/leaderboards/by-act/22d10d66-4d2a-a340-6c54-408c7bd53807?size=15&startIndex=${page}&api_key=RGAPI-509bfe1a-1109-45f1-aec3-a2bab7092b97`
         )
           .then((res) => res.json())
           .then((data) => {
