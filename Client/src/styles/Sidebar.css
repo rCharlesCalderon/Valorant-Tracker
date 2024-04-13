@@ -7,6 +7,8 @@
   align-items: center;
   justify-content: space-between;
   background-color: #111;
+   border-right: 2px red solid;
+  
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
 
@@ -22,11 +24,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  padding-top: 20%;
+  padding-top: 35%;
     height: 100%;
     width: 100%;
+    gap: 15px;
 }
-.home-logo-container {
+.logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,9 +39,10 @@
 }
 
 
-.home-logo-container:hover {
-    background: #292929;
-    transition: all .2s linear;
+.logo-container:hover {
+     background: linear-gradient(to right bottom, #292929, #252525, #202020, #1c1c1c, #181818);
+   
+    transition: all .3s linear;
 }
 .home-logo{
     height: 80%;

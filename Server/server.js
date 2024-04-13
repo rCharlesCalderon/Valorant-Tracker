@@ -15,16 +15,15 @@ app.get("/", (req, res) => {
 //send data to backend to make another fetch req becuz of format issue
 //get back player puuid
 
-app.post("/ValorantGamertag", (req, res) => {
-  let input = req.body.inputData.split("#");
-  let gamerTag = input[0];
-  let tagLine = input[1];
-
+app.post("/ValorantID", (req, res) => {
+  let playerData = req.body.player.gametag.split("#");
+  let gameName = playerData[0];
+  let tagLine = playerData[1];
   fetch(
-    `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${gamerTag}/${tagLine}?api_key=${daKey}`
+    `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${gameName}/${tagLine}?api_key=${daKey}`
   )
     .then((res) => res.json())
-    .then((data) => res.json({ data }));
+    .then((data) => console.log(data));
 });
 
 app.get("/ValorantGamertag", (req, res) => {

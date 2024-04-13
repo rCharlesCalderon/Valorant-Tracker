@@ -1,13 +1,16 @@
+
+
 .App {
   display: flex;
   text-align: center;
-  background: grey;
+  background: transparent;
   height: 100vh;
+justify-content: space-between;
 }
 
 
 *{
-  
+    scroll-behavior: smooth;
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;

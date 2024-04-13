@@ -1,36 +1,24 @@
-import { useState, useContext } from "react";
+
 import "../styles/App.css";
 import "../styles/Search.css";
 import canelVideo from "../video/canel.mp4";
-import { Link } from "react-router-dom";
-import { playerContext } from "../router/Router";
+
 
 function Home() {
-  const { playerData, setPlayerData } = useContext(playerContext);
-
   function submitData(e) {
     e.preventDefault();
     let input = document.querySelector(".input-value").value;
+    let encodeURL = encodeURIComponent(input);
 
-    fetch("http://localhost:3000/ValorantGamertag", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        inputData: input,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setPlayerData(data);
-      });
+    window.location = `/valorant/profile/${encodeURL}/overview`;
   }
 
   return (
+    
     <div className="search-container">
-      <video width="100%" loop muted autoPlay className="val-video">
-        <source src={canelVideo} type="video/mp4"></source>
+      
+      <video width="100%"  loop muted autoPlay className="val-video">
+        <source src={canelVideo} type="video/mp4" ></source>
       </video>
       <h1>COME UP WIH A TITLE </h1>
       <form className="search-input" method="POST">
@@ -44,7 +32,7 @@ function Home() {
           <img
             src="/images/dropdown.png"
             alt=""
-            className="search-input-valorant-img"
+            className="dropdown-img"
           ></img>
         </div>
         <div className="input-value-container">
@@ -59,14 +47,7 @@ function Home() {
             className="search-icon-button"
             onClick={submitData}
           >
-            <Link to={"/valorant/profile/:gametag/overview"}>
-              {" "}
-              <img
-                src="/images/search.png"
-                alt=""
-                className="search-icon-img"
-              />
-            </Link>
+            <img src="/images/search.png" alt="" className="search-icon-img" />
           </button>
         </div>
       </form>
