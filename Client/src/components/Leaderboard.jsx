@@ -25,6 +25,7 @@ function Leaderboard() {
              "X-Requested-With": "XMLHttpRequest",
              Origin: "https://developer.riotgames.com",
            },
+           mode: "cors",
          }
        )
          .then((res) => res.json())
