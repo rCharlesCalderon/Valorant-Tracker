@@ -19,18 +19,20 @@ function Leaderboard() {
   useEffect(()=>{
   
        fetch(
-  `https://cors-anywhere.herokuapp.com/https://na.api.riotgames.com/val/ranked/v1/leaderboards/by-act/22d10d66-4d2a-a340-6c54-408c7bd53807?size=15&startIndex=${page}&api_key=RGAPI-d6bea57b-e468-4496-b719-2c2e493bc15c`,
-  {
-    headers: {
-      "X-Requested-With": "XMLHttpRequest"
-    }
-  })
-          .then((res) => res.json())
-          .then((data) => {
-            setActData(data)
-        
-            setPlayerLeaderboard(data.players)
-          });
+         `https://cors-anywhere.herokuapp.com/https://na.api.riotgames.com/val/ranked/v1/leaderboards/by-act/22d10d66-4d2a-a340-6c54-408c7bd53807?size=15&startIndex=${page}&api_key=RGAPI-d6bea57b-e468-4496-b719-2c2e493bc15c`,
+         {
+           headers: {
+             "X-Requested-With": "XMLHttpRequest",
+             Origin: "https://developer.riotgames.com",
+           },
+         }
+       )
+         .then((res) => res.json())
+         .then((data) => {
+           setActData(data);
+
+           setPlayerLeaderboard(data.players);
+         });
   
   
   },[page])
