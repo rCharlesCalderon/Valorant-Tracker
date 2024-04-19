@@ -11,13 +11,14 @@ function SearchBar(props) {
       },
 
       body: JSON.stringify({
-        URL: encodeURL,
+        Url: encodeURL,
       }),
     })
       .then((res) => {
         return res.json();
       })
-      .then((res) => console.log(res));
+      .then((data) => console.log(data));
+      
   }
   return (
     <>
