@@ -15,6 +15,10 @@ app.get("/", (req, res) => {
 //send data to backend to make another fetch req becuz of format issue
 //get back player puuid
 
+app.post("/callback", (req, res) => {
+  console.log(req.body);
+});
+
 app.post("/ValorantID", (req, res) => {
   let playerData = req.body.player.gametag.split("#");
   let gameName = playerData[0];

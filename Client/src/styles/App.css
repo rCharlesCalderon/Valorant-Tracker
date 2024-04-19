@@ -1,4 +1,8 @@
+*{
 
+  box-sizing: border-box;
+
+}
 
 .App {
   display: flex;
@@ -6,6 +10,7 @@
   background: transparent;
   height: 100vh;
 justify-content: space-between;
+
 }
 
 

@@ -13,5 +13,8 @@ code {
 }
 
 #root{
-   background: #ece8e1;
+
+
+background: linear-gradient(to bottom, #192430, #334155);
+
 }

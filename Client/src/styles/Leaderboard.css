@@ -54,7 +54,7 @@
 .leaderboard-container {
     display: flex;
     flex-direction: column;
-    padding-top: 100px;
+    padding-top: 50px;
     width: 70vw;
     height: auto;
     gap: 8px;
@@ -206,7 +206,7 @@ color: rgb(0, 0, 0);
       text-align: center;
       font-size: 30px;
       font-weight: 600;
-        background-color: rgba(255, 255, 255, 0.302);
+        background-color: #fd455785
 }
 .player-rating-container {
     display: flex;
@@ -261,7 +261,7 @@ color: rgb(0, 0, 0);
     font-weight: 600;
     font-size: 14px;
     width: 18%;
-    background-color: rgba(255, 255, 255, 0.302);
+     background-color: #fd455785
         
 }
 

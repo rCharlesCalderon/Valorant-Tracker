@@ -2,40 +2,50 @@ import { useEffect } from "react";
 import "../styles/App.css";
 import "../styles/Leaderboard.css";
 import Sidebar from "./Sidebar";
+import SearchBar from "./SearchBar";
 import { useState } from "react";
-import {BarsScaleFade} from "react-svg-spinners"
+import { BarsScaleFade } from "react-svg-spinners";
 
 function Leaderboard() {
-  const [actData,setActData] = useState(null)
-  const [playerLeaderboard,setPlayerLeaderboard] = useState([])
-  const [page,setPage] = useState(0)
+  const [actData, setActData] = useState(null);
+  const [playerLeaderboard, setPlayerLeaderboard] = useState([]);
+  const [page, setPage] = useState(0);
 
-  function handlePageButton(pageNum){
-    //to give a animation effect 
-      setPlayerLeaderboard([])
-    setPage(page => page + pageNum)
+  function handlePageButton(pageNum) {
+    //to give a animation effect
+    setPlayerLeaderboard([]);
+    setPage((page) => page + pageNum);
   }
 
-  useEffect(()=>{
-  
-        fetch(
-          `https://na.api.riotgames.com/val/ranked/v1/leaderboards/by-act/22d10d66-4d2a-a340-6c54-408c7bd53807?size=15&startIndex=${page}&api_key=RGAPI-4c438e09-40fc-4f67-a92c-5e3ceb45396f`
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            setActData(data);
+  useEffect(() => {
+    fetch(
+      `https://na.api.riotgames.com/val/ranked/v1/leaderboards/by-act/22d10d66-4d2a-a340-6c54-408c7bd53807?size=15&startIndex=${page}&api_key=RGAPI-698fcaf3-fde4-476b-bfea-924acbabc4f0`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setActData(data);
 
-            setPlayerLeaderboard(data.players);
-          });
-  
-  
-  },[page])
+        setPlayerLeaderboard(data.players);
+      });
+  }, [page]);
   return (
     <div className="leaderboard">
+      <div style={{ width: "6vw", height: "100vh" }}></div>
       <Sidebar />
 
       <div className="leaderboard-page-container">
-        <div className="filler-div"> </div>
+        <div
+          style={{
+            display: "flex",
+            height: "8vh",
+            width: "100%",
+            border: "2px green solid",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <SearchBar width="50%" height="60%" />
+        </div>
         <div className="leaderboard-container">
           {actData ? (
             <>
@@ -75,39 +85,43 @@ function Leaderboard() {
                 <div className="leaderboard-info-act-title">ONGOING </div>
               </div>
               {playerLeaderboard && console.log(playerLeaderboard)}
-              {playerLeaderboard.length > 0 ? playerLeaderboard.map((obj, index) => (
-                <div
-                  className="player-container"
-                  key={index}
-                  style={{
-                    animation: `fadeIn 0.2s ease-in ${index * 0.05}s forwards`,
-                  }}
-                >
-                  <div className="player-number">{obj.leaderboardRank}</div>
-                  <div className="player-rating-container">
-                    <div className="player-rating">
-                      
-                      <img
-                        src={
-                          obj.competitiveTier === 27
-                            ? "../images/radiant-badge.png"
-                            : obj.competitiveTier === 26
-                            ? "../images/immortal-badge.png"
-                            : ""
-                        }
-                        alt=""
-                      ></img> 
-                    {obj.rankedRating}
-                  
+              {playerLeaderboard.length > 0 ? (
+                playerLeaderboard.map((obj, index) => (
+                  <div
+                    className="player-container"
+                    key={index}
+                    style={{
+                      animation: `fadeIn 0.2s ease-in ${
+                        index * 0.05
+                      }s forwards`,
+                    }}
+                  >
+                    <div className="player-number">{obj.leaderboardRank}</div>
+                    <div className="player-rating-container">
+                      <div className="player-rating">
+                        <img
+                          src={
+                            obj.competitiveTier === 27
+                              ? "../images/radiant-badge.png"
+                              : obj.competitiveTier === 26
+                              ? "../images/immortal-badge.png"
+                              : ""
+                          }
+                          alt=""
+                        ></img>
+                        {obj.rankedRating}
+                      </div>
+                      <span>{obj.gameName}</span>
+                      <span>#{obj.tagLine}</span>
                     </div>
-                    <span>{obj.gameName}</span>
-                    <span>#{obj.tagLine}</span>
+                    <div className="player-games">
+                      {obj.numberOfWins} GAMES WON
+                    </div>
                   </div>
-                  <div className="player-games">
-                    {obj.numberOfWins} GAMES WON
-                  </div>
-                </div>
-              )) : <BarsScaleFade/>}
+                ))
+              ) : (
+                <BarsScaleFade />
+              )}
               <div className="change-page-container">
                 <button
                   className="change-button"
