@@ -4,6 +4,7 @@ import PlayerStats from "../components/PlayerStats";
 import App from "../App";
 import TermsOfService from "../components/TermsOfService";
 import PrivacyPolicy from "../components/PrivacyPolicy";
+import Callback from "../components/Callback";
 import Leaderboard from "../components/Leaderboard";
 import { createContext, useState } from "react";
 const playerContext = createContext(null);
@@ -20,6 +21,7 @@ function AppRouter() {
             path="/valorant/profile/:gametag/overview"
             element={<PlayerStats />}
           ></Route>
+          <Route path="/callback" element={<Callback />}></Route>
           <Route path="/valorant/leaderboard" element={<Leaderboard />}></Route>
           <Route path="/terms-of-service" element={<TermsOfService />}></Route>
           <Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>

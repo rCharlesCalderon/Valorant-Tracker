@@ -3,8 +3,8 @@ function SearchBar(props) {
   function submitData() {
     let input = document.querySelector(".input-value").value;
     let encodeURL = encodeURIComponent(input);
-
-    fetch("https://valorant-tracker-production-ffb1.up.railway.app/callback", {
+    //dont need
+    fetch("https://valorant-tracker-production-ffb1.up.railway.app/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -18,7 +18,6 @@ function SearchBar(props) {
         return res.json();
       })
       .then((data) => console.log(data));
-      
   }
   return (
     <>
