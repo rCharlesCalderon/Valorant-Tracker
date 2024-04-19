@@ -5,14 +5,19 @@ function SearchBar(props) {
     let encodeURL = encodeURIComponent(input);
 
     fetch("https://valorant-tracker-production-ffb1.up.railway.app/callback", {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      method: "POST",
+
       body: JSON.stringify({
         URL: encodeURL,
       }),
-    });
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => console.log(res));
   }
   return (
     <>
