@@ -16,6 +16,7 @@ app.get("/", (req, res) => {
 //get back player puuid
 
 app.post("/callback", (req, res) => {
+    res.json({ users: ["CALLBACK PAGE TESTING"] });
 });
 
 app.post("/logout", (req, res) => {

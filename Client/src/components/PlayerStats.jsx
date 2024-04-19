@@ -1,26 +1,6 @@
-import { useEffect } from "react";
-
-import { useParams } from "react-router-dom";
 import "../styles/PlayerStats.css";
 import Sidebar from "./Sidebar";
 function PlayerStats() {
-  let gamerTag = useParams();
-
-  useEffect(() => {
-    fetch(
-      `https://valorant-tracker-production-ffb1.up.railway.app/ValorantID`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          player: gamerTag,
-        }),
-      }
-    );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   return (
     <div className="playerStats-container">
       <Sidebar />
