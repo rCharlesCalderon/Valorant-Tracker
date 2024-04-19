@@ -4,9 +4,9 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(cors({ origin: "http://localhost:3001" }));
+app.use(cors({ origin: "*" }));
 require("dotenv").config();
-const daKey = process.env.VALORANT_API_KEY;
+
 app.get("/", (req, res) => {
   res.json({ users: ["Userone"] });
 });
@@ -19,12 +19,17 @@ app.post("/callback", (req, res) => {
   console.log(req.body);
 });
 
+app.post("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/");
+});
+
 app.post("/ValorantID", (req, res) => {
   let playerData = req.body.player.gametag.split("#");
   let gameName = playerData[0];
   let tagLine = playerData[1];
   fetch(
-    `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${gameName}/${tagLine}?api_key=${daKey}`
+    `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${gameName}/${tagLine}?api_key=RGAPI-4c530cac-cdc0-4939-8bcc-3c7b0d4cedff`
   )
     .then((res) => res.json())
     .then((data) => console.log(data));
