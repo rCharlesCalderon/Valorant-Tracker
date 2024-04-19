@@ -9,7 +9,6 @@ app.use(cors());
 require("dotenv").config();
 const daKey = process.env.VALORANT_API_KEY;
 app.get("/", (req, res) => {
-  res.json({ users: ["Userone"] });
 });
 
 app.post("/callback", (req, res) => {
