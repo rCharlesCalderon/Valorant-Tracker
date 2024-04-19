@@ -6,14 +6,6 @@ import Sidebar from "../components/Sidebar";
 import SearchBar from "../components/SearchBar";
 
 function Home() {
-  function submitData(e) {
-    e.preventDefault();
-    let input = document.querySelector(".input-value").value;
-    let encodeURL = encodeURIComponent(input);
-
-    window.location = `/valorant/profile/${encodeURL}/overview`;
-  }
-
   return (
     <div style={{ display: "flex", position: "relative", minHeight: "100vh" }}>
       <div>
