@@ -16,7 +16,6 @@ app.get("/", (req, res) => {
 //get back player puuid
 
 app.post("/callback", (req, res) => {
-  console.log(req.body);
 });
 
 app.post("/logout", (req, res) => {

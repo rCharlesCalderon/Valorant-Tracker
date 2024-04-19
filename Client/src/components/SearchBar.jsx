@@ -4,7 +4,15 @@ function SearchBar(props) {
     let input = document.querySelector(".input-value").value;
     let encodeURL = encodeURIComponent(input);
 
-    window.location = `/valorant/profile/${encodeURL}/overview`;
+    fetch("https://valorant-tracker-production-ffb1.up.railway.app/callback", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify({
+        URL: encodeURL,
+      }),
+    });
   }
   return (
     <>
