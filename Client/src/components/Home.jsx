@@ -4,8 +4,17 @@ import "../styles/App.css";
 import canelVideo from "../video/canel.mp4";
 import Sidebar from "../components/Sidebar";
 import SearchBar from "../components/SearchBar";
+import { useEffect, useState } from "react";
 
 function Home() {
+  const [URL, setURL] = useState(null);
+  useEffect(() => {
+    fetch("http://localhost:3000/testing", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => setURL(data));
+  }, []);
   return (
     <div style={{ display: "flex", position: "relative", minHeight: "100vh" }}>
       <div>
@@ -59,7 +68,8 @@ function Home() {
           >
             <SearchBar />
             <h2 style={{ color: "#fffbf5" }}>OR</h2>
-            <button
+            <a
+              href={URL}
               style={{
                 width: "40%",
                 height: "5vh",
@@ -71,8 +81,8 @@ function Home() {
                 fontSize: "17px",
               }}
             >
-              Sign in with Riot
-            </button>
+              Riot Sign in
+            </a>
             <span
               style={{
                 textAlign: "left",
