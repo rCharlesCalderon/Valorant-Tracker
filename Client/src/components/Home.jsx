@@ -13,7 +13,7 @@ function Home() {
       method: "GET",
     })
       .then((res) => res.json())
-      .then((data) => setURL(data));
+      .then((data) => setURL(data.link));
   }, []);
   return (
     <div style={{ display: "flex", position: "relative", minHeight: "100vh" }}>
@@ -68,21 +68,24 @@ function Home() {
           >
             <SearchBar />
             <h2 style={{ color: "#fffbf5" }}>OR</h2>
-            <a
-              href={URL}
-              style={{
-                width: "40%",
-                height: "5vh",
-                border: "none",
-                borderRadius: "5px",
-                background: "#FF4654",
-                color: "white",
-                fontWeight: 600,
-                fontSize: "17px",
-              }}
-            >
-              Riot Sign in
-            </a>
+            {URL && (
+              <a
+                href={URL}
+                style={{
+                  textAlign: "center",
+                  width: "40%",
+                  height: "5vh",
+                  border: "none",
+                  borderRadius: "5px",
+                  background: "#FF4654",
+                  color: "white",
+                  fontWeight: 600,
+                  fontSize: "17px",
+                }}
+              >
+                Riot Sign in
+              </a>
+            )}
             <span
               style={{
                 textAlign: "left",
